@@ -48,7 +48,7 @@ class PluginProtxform extends GatewayPlugin
                                        ),
                     lang("Vendor E-mail") => array (
                                         "type"          =>"text",
-                                        "description"   =>lang("This E-mail is sent from protx to inform the customer of the transaction.  You need to set this to your E-mail address that you want bills to come from."),
+                                        "description"   =>lang("This E-mail is sent from protx to inform the client of the transaction.  You need to set this to your E-mail address that you want bills to come from."),
                                         'value'         => '',
                                        ),
                    lang("Visa") => array (
@@ -73,7 +73,7 @@ class PluginProtxform extends GatewayPlugin
                                        ),
                    lang("Invoice After Signup") => array (
                                         "type"          =>"yesno",
-                                        "description"   =>lang("Select YES if you want an invoice sent to the customer after signup is complete."),
+                                        "description"   =>lang("Select YES if you want an invoice sent to the client after signup is complete."),
                                         "value"         =>"1"
                                        ),
                    lang("Signup Name") => array (
@@ -88,17 +88,12 @@ class PluginProtxform extends GatewayPlugin
                                        ),
                    lang("Dummy Plugin") => array (
                                         "type"          =>"hidden",
-                                        "description"   =>lang("1 = Only used to specify a billing type for a customer. 0 = full fledged plugin requiring complete functions"),
+                                        "description"   =>lang("1 = Only used to specify a billing type for a client. 0 = full fledged plugin requiring complete functions"),
                                         "value"         =>"0"
                                        ),
                    lang("Auto Payment") => array (
                                         "type"          =>"hidden",
                                         "description"   =>lang("No description"),
-                                        "value"         =>"0"
-                                       ),
-                   lang("30 Day Billing") => array (
-                                        "type"          =>"hidden",
-                                        "description"   =>lang("Select YES if you want ClientExec to treat monthly billing by 30 day intervals.  If you select NO then the same day will be used to determine intervals."),
                                         "value"         =>"0"
                                        ),
                    lang("Demo Mode") => array (
@@ -116,7 +111,8 @@ class PluginProtxform extends GatewayPlugin
     }
 
     function credit($params)
-    {}
+    {
+    }
 
     function singlepayment($params)
     {
@@ -125,13 +121,13 @@ class PluginProtxform extends GatewayPlugin
         $strRet .= "<head></head>\n";
         $strRet .= "<body>\n";
 
-        if($params["plugin_protxform_Demo Mode"]==1){
+        if ($params["plugin_protxform_Demo Mode"]==1) {
             //Old URL
             //$strRet .= "<form name=\"frmProtx\" action=\"https://ukvpstest.protx.com/vspgateway/service/vspform-register.vsp\" method=\"post\">\n";
 
             //New URL
             $strRet .= "<form name=\"frmProtx\" action=\"https://test.sagepay.com/gateway/service/vspform-register.vsp\" method=\"post\">\n";
-        }else{
+        } else {
             ////Old URL
             //$strRet .= "<form name=\"frmProtx\" action=\"https://ukvps.protx.com/vspgateway/service/vspform-register.vsp\" method=\"post\">\n";
 
@@ -165,4 +161,3 @@ class PluginProtxform extends GatewayPlugin
         exit;
     }
 }
-?>
