@@ -110,8 +110,9 @@ class PluginProtxform extends GatewayPlugin
         return $variables;
     }
 
-    function credit($params)
+    public function credit($params)
     {
+        return $this->user->lang("This payment gateway does not support refunds.");
     }
 
     function singlepayment($params)
