@@ -14,7 +14,7 @@
     Solo        6334 9000 0000 0005 Issue No 1  Any Expiry Date
     Amercian Expres 3742 0000 0000 004  No Applicable   Any Expiry Date
 */
-include("functions.php");
+include "plugins/gateways/protxform/functions.php";
 require_once 'modules/admin/models/GatewayPlugin.php';
 
 /**
