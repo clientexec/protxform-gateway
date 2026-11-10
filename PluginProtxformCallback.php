@@ -8,6 +8,11 @@ class PluginProtxformCallback extends PluginCallback
     
     function processCallback()
     {
+        // Execute PluginCallback::processCallback() first
+        if (!parent::processCallback()) {
+            return;
+        }
+
         // ignore the request
         if (!isset($_REQUEST['crypt'])) {
             return;
